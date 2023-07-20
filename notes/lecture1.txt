@@ -1,0 +1,90 @@
+special commands: (shell built ins: normally creates a new process and then waits for that process to complete and control comes back to main shell. These commands are apart of shell itself, execute within shell itself. - faster - only shell knows how to interpret certain command)
+- cd
+- type
+- test
+- exec
+
+normal commands
+- pwd
+- touch (change timestamps)
+- ls:
+- ls -l
+- ls -a
+- ls -lh
+- ls -r (reverse order)
+- ls -ltd (order by timestamp in reverse order) **most recent file
+- env
+- rm, mv, cp (copy)
+- mkdir, rmdir
+- sed (stream editor), awk (similar)
+- echo
+- grep
+- find
+- cut
+- editors: nano, vim, subl, ed, emacs, vi, code
+- ls C ??
+- ls | wc -l ??
+- man (look up online manual) (q exits manual, search manual: man ~command~)
+        - section 1 shell commands
+        - section 2 system calls
+        - section 3 libraries
+        - section 4 special files
+        - section 5 file formats
+        - section 7 (regex ??)
+- man man (manual page explaining manual)
+
+Todays lab 
+- *** man
+- find
+- grep
+- tr
+- tarballs and zip ??
+
+FIND 
+- starting point (optional)
+- find (gives all files)
+- find /etc
+- expression and operators: 
+- find .-type f (regular files)       (. is currect directory)
+- find .type d (directories) (wc | -l)
+- find -type f - empty (finds empty files)
+- find -type d - empty (finds empty directories)
+
+GREP
+- grep [OPTION ...]
+- grep git index.ascii
+- grep -i git index.ascii (searches for git) (- i case sensitive)
+- grep ".py" index.ascii (looks for things that look like python files)
+- grep ".py" (. matches any character, \ helps)
+- grep "\.py" index.ascii (works, html fils included)
+- grep "\.py\>" index.ascii  (> empty space at end of word) (doesnt work)
+- grep "\.py\w" index.ascii (doesnt work)
+- grep " A branch" index.ascii (contains a space - )
+- man regex - 
+
+TR (translate)
+- tr "[a-z]" "[A-Z]" < index.ascii
+- tr "aeiou" "AEIOU" < index.ascii
+- tr " " "\n" < index.ascii (every word on a line by itself)
+- tr " " "\n" < index.ascii | grep .
+- tr "[:blank:] < index.ascii
+
+
+secret tasks (NOT A PART OF ASSESSMENT)
+
+
+viewing shell
+- sleep 10
+- invoke simple system calls
+- which -a echo
+- /bin/echo hello > t
+
+system call: runs in user space and can access memory  - if it has to interact with another process ( print in terminal etc) - has it do so by asking operating system to do it for it 
+- man syscall
+- can ask operating system to do on behalf of your program (python program, write call)
+- write
+
+- creating processes:
+        - fork (creates a new process (2 processes, original and almost copy of original, differs in process identifier, pid not 0 = parent ??, will wait till child finishes))
+
+        - exec
